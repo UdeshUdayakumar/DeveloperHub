@@ -17,7 +17,7 @@
         <div id="myDiv2"></div>
         <script>
             $(document).ready(function(){
-                              $.getJSON('http://coincap.io/front',function(data){
+                              $.getJSON('https://coincap.io/front',function(data){
                                         var i;
                                         for(i=0;i<data.length;i++)
                                         {
@@ -35,7 +35,7 @@
             var z1=[0];
             $("#day").click(function(){
                             alert("Please wait till we fetch the data");
-                              $.getJSON('http://coincap.io/history/1day/BTC',function(data){
+                              $.getJSON('https://coincap.io/history/1day/BTC',function(data){
                                         var count=1;
                                         var str1;
                                         $.each(data,function(i,field){
@@ -53,7 +53,7 @@
                                         z1[i]=1;
                                         }
                                         
-                              $.getJSON('http://coincap.io/history/1day/ETH',function(data){
+                              $.getJSON('https://coincap.io/history/1day/ETH',function(data){
                                         var count=1;
                                         var str1;
                                         $.each(data,function(i,field){
@@ -110,7 +110,7 @@
             var z1=[0];
             $("#week").click(function(){
                              alert("Please wait till we fetch the data");
-                             $.getJSON('http://coincap.io/history/7day/BTC',function(data){
+                             $.getJSON('https://coincap.io/history/7day/BTC',function(data){
                                       var count=1;
                                       var str1;
                                       $.each(data,function(i,field){
@@ -128,7 +128,7 @@
                                       z1[i]=1;
                                       }
                                       
-                                      $.getJSON('http://coincap.io/history/7day/ETH',function(data){
+                                      $.getJSON('https://coincap.io/history/7day/ETH',function(data){
                                                 var count=1;
                                                 var str1;
                                                 $.each(data,function(i,field){
@@ -183,7 +183,7 @@
             var z1=[0];
             $("#month").click(function(){
                               alert("Please wait till we fetch the data");
-                              $.getJSON('http://coincap.io/history/30day/BTC',function(data){
+                              $.getJSON('https://coincap.io/history/30day/BTC',function(data){
                                       var count=1;
                                       var str1;
                                       $.each(data,function(i,field){
@@ -201,7 +201,7 @@
                                       z1[i]=1;
                                       }
                                       
-                                      $.getJSON('http://coincap.io/history/30day/ETH',function(data){
+                                      $.getJSON('https://coincap.io/history/30day/ETH',function(data){
                                                 var count=1;
                                                 var str1;
                                                 $.each(data,function(i,field){
@@ -256,7 +256,7 @@
             var z1=[0];
             $("#six").click(function(){
                             alert("Please wait till we fetch the data");
-                            $.getJSON('http://coincap.io/history/180day/BTC',function(data){
+                            $.getJSON('https://coincap.io/history/180day/BTC',function(data){
                                       var count=1;
                                       var str1;
                                       $.each(data,function(i,field){
@@ -273,7 +273,7 @@
                                       y1[i]=str1[i][1];
                                       z1[i]=1;
                                       }
-                                      $.getJSON('http://coincap.io/history/180day/ETH',function(data){
+                                      $.getJSON('https://coincap.io/history/180day/ETH',function(data){
                                                 var count=1;
                                                 var str1;
                                                 $.each(data,function(i,field){
