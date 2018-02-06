@@ -1,0 +1,324 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <div style="font: italic bold 16px/30px Georgia, serif;" id="btcvalue">Bitcoin (BTC) : $</div>
+        <div style="font: italic bold 16px/30px Georgia, serif;"id="ethvalue">Etherium (ETH) : $</div>
+        <span style="font: italic bold 16px/30px Georgia, serif;"id="ethvalue">Trends</span>
+        <button id="day">1 day</button>
+        <button id="week">1 week</button>
+        <button id="month">1 month</button>
+        <button id="six">6 months</button>
+        <div id="myDiv"></div>
+        <div id="myDiv2"></div>
+        <script>
+            $(document).ready(function(){
+                              $.getJSON('http://coincap.io/front',function(data){
+                                        var i;
+                                        for(i=0;i<data.length;i++)
+                                        {
+                                        if(data[i].short=="BTC")
+                                        $("#btcvalue").append(data[i].price);
+                                        if(data[i].short=="ETH")
+                                        $("#ethvalue").append(data[i].price);
+                                        }
+                                        });
+                              });
+            </script>
+        <script>
+            var x1=[0];
+            var y1=[0];
+            var z1=[0];
+            $("#day").click(function(){
+                            alert("Please wait till we fetch the data");
+                              $.getJSON('http://coincap.io/history/1day/BTC',function(data){
+                                        var count=1;
+                                        var str1;
+                                        $.each(data,function(i,field){
+                                               if(count==2)
+                                               {
+                                               str1=field;
+                                               }
+                                               count++;
+                                               });
+                                        var i;
+                                        for(i=0;i<str1.length;i++)
+                                        {
+                                        x1[i]=i;
+                                        y1[i]=str1[i][1];
+                                        z1[i]=1;
+                                        }
+                                        
+                              $.getJSON('http://coincap.io/history/1day/ETH',function(data){
+                                        var count=1;
+                                        var str1;
+                                        $.each(data,function(i,field){
+                                               if(count==2)
+                                               {
+                                               str1=field;
+                                               }
+                                               count++;
+                                               });
+                                        var i;
+                                        for(i=0;i<str1.length;i++)
+                                        {
+                                        z1[i]=str1[i][1];
+                                        }
+                                        
+                              
+            var trace1 = {
+                x: x1,
+                y: y1,
+                type: 'scatter',
+                name : 'BTC'
+            };
+        var trace2 = {
+            x: x1,
+            y: y1,
+            type: 'scatter',
+            name : 'BTC'
+        };
+        var trace3 = {
+            x: x1,
+            y: z1,
+            type: 'scatter',
+            name : 'ETH'
+        };
+        var trace4 = {
+            x: x1,
+            y: z1,
+            type: 'scatter',
+            name : 'ETH'
+        };
+        var data = [trace1, trace2];
+        var data2=[trace3,trace4];
+        Plotly.newPlot('myDiv', data);
+        Plotly.newPlot('myDiv2', data2);
+        document.querySelector('[data-title="Autoscale"]').click();
+                                        alert("Complete");
+                                        });
+                                        });
+                              });
+            </script>
+        <script>
+            var x1=[0];
+            var y1=[0];
+            var z1=[0];
+            $("#week").click(function(){
+                             alert("Please wait till we fetch the data");
+                             $.getJSON('http://coincap.io/history/7day/BTC',function(data){
+                                      var count=1;
+                                      var str1;
+                                      $.each(data,function(i,field){
+                                             if(count==2)
+                                             {
+                                             str1=field;
+                                             }
+                                             count++;
+                                             });
+                                      var i;
+                                      for(i=0;i<str1.length;i++)
+                                      {
+                                      x1[i]=i;
+                                      y1[i]=str1[i][1];
+                                      z1[i]=1;
+                                      }
+                                      
+                                      $.getJSON('http://coincap.io/history/7day/ETH',function(data){
+                                                var count=1;
+                                                var str1;
+                                                $.each(data,function(i,field){
+                                                       if(count==2)
+                                                       {
+                                                       str1=field;
+                                                       }
+                                                       count++;
+                                                       });
+                                                var i;
+                                                for(i=0;i<str1.length;i++)
+                                                {
+                                                z1[i]=str1[i][1];
+                                                }
+                                                var trace1 = {
+                                                x: x1,
+                                                y: y1,
+                                                type: 'scatter',
+                                                name : 'BTC'
+                                                };
+                                                var trace2 = {
+                                                x: x1,
+                                                y: y1,
+                                                type: 'scatter',
+                                                name : 'BTC'
+                                                };
+                                                var trace3 = {
+                                                x: x1,
+                                                y: z1,
+                                                type: 'scatter',
+                                                name : 'ETH'
+                                                };
+                                                var trace4 = {
+                                                x: x1,
+                                                y: z1,
+                                                type: 'scatter',
+                                                name : 'ETH'
+                                                };
+                                                var data = [trace1, trace2];
+                                                var data2=[trace3,trace4];
+                                                Plotly.newPlot('myDiv', data);
+                                                Plotly.newPlot('myDiv2', data2);
+                                                document.querySelector('[data-title="Autoscale"]').click();
+                                                alert("Complete");
+                                                });
+                                      });
+                            });
+            </script>
+        <script>
+            var x1=[0];
+            var y1=[0];
+            var z1=[0];
+            $("#month").click(function(){
+                              alert("Please wait till we fetch the data");
+                              $.getJSON('http://coincap.io/history/30day/BTC',function(data){
+                                      var count=1;
+                                      var str1;
+                                      $.each(data,function(i,field){
+                                             if(count==2)
+                                             {
+                                             str1=field;
+                                             }
+                                             count++;
+                                             });
+                                      var i;
+                                      for(i=0;i<str1.length;i++)
+                                      {
+                                      x1[i]=i;
+                                      y1[i]=str1[i][1];
+                                      z1[i]=1;
+                                      }
+                                      
+                                      $.getJSON('http://coincap.io/history/30day/ETH',function(data){
+                                                var count=1;
+                                                var str1;
+                                                $.each(data,function(i,field){
+                                                       if(count==2)
+                                                       {
+                                                       str1=field;
+                                                       }
+                                                       count++;
+                                                       });
+                                                var i;
+                                                for(i=0;i<str1.length;i++)
+                                                {
+                                                z1[i]=str1[i][1];
+                                                }
+                                                var trace1 = {
+                                                x: x1,
+                                                y: y1,
+                                                type: 'scatter',
+                                                name : 'BTC'
+                                                };
+                                                var trace2 = {
+                                                x: x1,
+                                                y: y1,
+                                                type: 'scatter',
+                                                name : 'BTC'
+                                                };
+                                                var trace3 = {
+                                                x: x1,
+                                                y: z1,
+                                                type: 'scatter',
+                                                name : 'ETH'
+                                                };
+                                                var trace4 = {
+                                                x: x1,
+                                                y: z1,
+                                                type: 'scatter',
+                                                name : 'ETH'
+                                                };
+                                                var data = [trace1, trace2];
+                                                var data2=[trace3,trace4];
+                                                Plotly.newPlot('myDiv', data);
+                                                Plotly.newPlot('myDiv2', data2);
+                                                document.querySelector('[data-title="Autoscale"]').click();
+                                                alert("Complete");
+                                                });
+                                      });
+                            });
+            </script>
+        <script>
+            var x1=[0];
+            var y1=[0];
+            var z1=[0];
+            $("#six").click(function(){
+                            alert("Please wait till we fetch the data");
+                            $.getJSON('http://coincap.io/history/180day/BTC',function(data){
+                                      var count=1;
+                                      var str1;
+                                      $.each(data,function(i,field){
+                                             if(count==2)
+                                             {
+                                             str1=field;
+                                             }
+                                             count++;
+                                             });
+                                      var i;
+                                      for(i=0;i<str1.length;i++)
+                                      {
+                                      x1[i]=i;
+                                      y1[i]=str1[i][1];
+                                      z1[i]=1;
+                                      }
+                                      $.getJSON('http://coincap.io/history/180day/ETH',function(data){
+                                                var count=1;
+                                                var str1;
+                                                $.each(data,function(i,field){
+                                                       if(count==2)
+                                                       {
+                                                       str1=field;
+                                                       }
+                                                       count++;
+                                                       });
+                                                var i;
+                                                for(i=0;i<str1.length;i++)
+                                                {
+                                                z1[i]=str1[i][1];
+                                                }
+                                                var trace1 = {
+                                                x: x1,
+                                                y: y1,
+                                                type: 'scatter',
+                                                name : 'BTC'
+                                                };
+                                                var trace2 = {
+                                                x: x1,
+                                                y: y1,
+                                                type: 'scatter',
+                                                name : 'BTC'
+                                                };
+                                                var trace3 = {
+                                                x: x1,
+                                                y: z1,
+                                                type: 'scatter',
+                                                name : 'ETH'
+                                                };
+                                                var trace4 = {
+                                                x: x1,
+                                                y: z1,
+                                                type: 'scatter',
+                                                name : 'ETH'
+                                                };
+                                                var data = [trace1, trace2];
+                                                var data2=[trace3,trace4];
+                                                Plotly.newPlot('myDiv', data);
+                                                Plotly.newPlot('myDiv2', data2);
+                                                document.querySelector('[data-title="Autoscale"]').click();
+                                                alert("Complete");
+                                                });
+                                      });
+                            });
+            </script>
+    </body>
+</html>
