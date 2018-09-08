@@ -1,0 +1,41 @@
+body{
+	color: black;
+}
+
+.titlehead{
+	text-align: left;
+	text-decoration: underline;
+	font-weight: bold;
+	font-style: italic;
+	color: white;
+}
+
+.cointype{
+	font-weight: bold;
+	font-style: italic;
+	font-size: 2rem;
+	font-family: Georgia, serif;
+}
+
+#valuehead{
+	font-size: 3em;
+	font-family: Times New Roman;
+	font-style: italic;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.loginform{
+	margin-top: 10%;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom: 10%;
+}
+
+.signupform{
+	margin-top: 10%;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom: 10%;
+}
+
